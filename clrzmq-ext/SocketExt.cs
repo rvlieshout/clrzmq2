@@ -96,7 +96,7 @@ namespace ZMQ.ZMQExt {
             byte[] data = skt.Recv(timeout);
             if (data != null) {
                 BinaryFormatter bf = new BinaryFormatter();
-                MemoryStream ms = new MemoryStream();
+                MemoryStream ms = new MemoryStream(data);
                 ms.Position = 0;
                 obj = (T)bf.Deserialize(ms);
                 ms.Close();
